@@ -24,8 +24,8 @@ func Routes(router *gin.Engine) {
 	// custom routes
 	// -------------------------------------------------
 	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "homepage",
+		c.HTML(http.StatusOK, "home/index.html", gin.H{
+			"title": "Posts",
 		})
 	})
 }

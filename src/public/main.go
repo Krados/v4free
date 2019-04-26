@@ -28,6 +28,9 @@ func main() {
 	// create gin engine
 	router := gin.Default()
 
+	// load the all need template
+	router.LoadHTMLGlob("../resources/views/**/*")
+
 	// load all the routes
 	routes.Routes(router)
 
