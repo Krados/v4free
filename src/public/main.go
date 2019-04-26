@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	routes "routes"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -27,6 +28,8 @@ func main() {
 	// create gin engine
 	router := gin.Default()
 
-	router.Run(":" + port)
+	// load all the routes
+	routes.Routes(router)
 
+	router.Run(":" + port)
 }
