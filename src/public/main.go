@@ -26,13 +26,16 @@ func main() {
 	port := os.Getenv("PORT")
 
 	// create gin engine
-	router := gin.Default()
+	app := gin.Default()
+
+	// load the all need js, css, images
+	app.Static("/assets", "./assets")
 
 	// load the all need template
-	router.LoadHTMLGlob("../resources/views/**/*")
+	app.LoadHTMLGlob("../resources/views/**/*")
 
 	// load all the routes
-	routes.Routes(router)
+	routes.Routes(app)
 
-	router.Run(":" + port)
+	app.Run(":" + port)
 }
